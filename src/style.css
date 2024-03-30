@@ -1,0 +1,78 @@
+/* style.css */
+
+/* Chatbox container */
+#main {
+    background-color: antiquewhite;
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 400px;
+    overflow-y: auto; /* Add overflow for scrolling */
+}
+
+#message-box {
+    background-color: burlywood;
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* height: 400px; */
+}
+
+/* Message style */
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    word-wrap: break-word;
+}
+
+/* Sent messages */
+.sent {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+/* Received messages */
+.received {
+    background-color: #f0f0f0;
+    color: black;
+    align-self: flex-start;
+}
+
+/* Input container */
+.input-container {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    width: calc(100% - 40px); /* Subtract padding */
+    padding: 0 20px; /* Add padding to match container */
+    display: flex;
+    align-items: center;
+}
+
+input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
