@@ -76,3 +76,56 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  #main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+  }
+  
+  .sent {
+    background-color: burlywood;
+    align-self: flex-end;
+  }
+  
+  .received {
+    background-color: burlywood;
+    align-self: flex-start;
+  }
+  
+  #message-box {
+    display: flex;
+    align-items: center;
+    width: 80%;
+  }
+  
+  #message-box input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #message-box button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  
