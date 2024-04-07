@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import io from 'socket.io-client';
 
+
+import OnlineStatusIndicator from './onlineStateIndicator';
+
 function ChatBox({ userInfo }) {
   const [message, setMessage] = useState(''); // State variable to hold user input
   const [messages, setMessages] = useState([]); // State variable to hold chat messages
@@ -51,6 +54,7 @@ function ChatBox({ userInfo }) {
 
   return (
     <div className="App">
+        <OnlineStatusIndicator isOnline={true} />
       <div id="main">
         {/* Render the chat messages */}
         {messages.map((msg, index) => (

@@ -129,3 +129,72 @@ button:hover {
     cursor: pointer;
   }
   
+
+  .friends-list {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px; /* Adjust width as needed */
+  }
+  
+  .friend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .friend-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .online {
+    background-color: green;
+  }
+  
+  .offline {
+    background-color: red;
+  }
+  .unread-message-indicator {
+    margin-left: 5px;
+    color: blue; /* Change color as needed */
+    font-size: 10px; /* Adjust font size as needed */
+  }
+  
+  .friend {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .friend.even {
+    background-color: rgb(179, 155, 119); /* Light gray */
+  }
+  
+  .friend.odd {
+    background-color: rgb(146, 117, 63); /* Lighter gray */
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 80%; /* Adjust width as needed */
+  }
+  
+  .separator {
+    border: 0;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
