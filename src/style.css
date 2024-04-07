@@ -198,3 +198,34 @@ button:hover {
     margin-bottom: 10px;
   }
   
+
+  .chat-type-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+  .button:active {
+    background-color: #3e8e41; /* Active green */
+  }
+  
+
+  
