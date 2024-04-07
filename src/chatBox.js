@@ -12,7 +12,7 @@ function ChatBox({ userInfo }) {
 
   useEffect(() => {
     // Connect to the Socket.IO server when the component mounts
-    const socketInstance = io('http://localhost:8080'); // Replace with your server URL
+    const socketInstance = io('https://recomendation-system.up.railway.app/'); // Replace with your server URL
     setSocket(socketInstance);
 
    

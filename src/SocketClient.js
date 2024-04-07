@@ -57,6 +57,9 @@ const SocketClient = ({newMessage}) => {
             console.log('Message from server:', data);
         });
 
+
+        console.log(newMessage);
+
         // Example: Emit a message to the server
         socket.emit('new-message', {newMessage});
         
