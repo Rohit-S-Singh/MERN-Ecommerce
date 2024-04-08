@@ -4,6 +4,8 @@ import ChatTypeSelector from './chatTypeSelector'; // Assuming you have a ChatTy
 import SocketClient from './SocketClient';
 // import ChatBox from './ChatBox'; // Assuming you have a ChatBox component
 
+import Community from './Community/Community';
+
 function App() {
   const [chatType, setChatType] = useState(null);
 
@@ -39,13 +41,19 @@ function App() {
                 <SocketClient />
                 <FriendsList friends={friends} />
                 {/* <ChatBox /> */}
+                
               </>
             )
           ) : (
+            <div>
             <ChatTypeSelector
               onSelectPrivateChat={handleSelectPrivateChat}
               onSelectCommunityChat={handleSelectCommunityChat}
             />
+            <div> <p>Create a new Community</p>
+                <Community></Community>
+                </div>
+            </div>
           )}
         </div>
       </div>
