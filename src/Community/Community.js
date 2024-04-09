@@ -1,28 +1,49 @@
 import React, { useState } from 'react';
-import io from 'socket.io-client';
+import axios from 'axios';
 
 import './community.css';
 
 const CreateCommunityForm = () => {
-    const [communityType, setCommunityId] = useState('');
+    const [communityType, setCommunityType] = useState('');
     const [communityName, setCommunityName] = useState('');
+    const [showLoader, setShowLoader] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const [createdCommunityName, setCreatedCommunityName] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Prevent default form submission
 
+        try {
+            setShowLoader(true); // Show loader while waiting for response
+            const response = await axios.post(
+                'https://recomendation-system.up.railway.app/api/v1/community',
+                {
+                    name: communityName,
+                    type: communityType
+                }
+            );
 
-        // API call
-
-
-        
+            if (response.data) {
+                setCreatedCommunityName(communityName);
+                setShowPopup(true);
+            }
+        } catch (error) {
+            console.error('Error creating community:', error);
+        } finally {
+            setShowLoader(false); // Hide loader regardless of the outcome
+        }
     };
 
-    const handleCommunityIdChange = (event) => {
-        setCommunityId(event.target.value);
+    const handleCommunityTypeChange = (event) => {
+        setCommunityType(event.target.value);
     };
 
     const handleCommunityNameChange = (event) => {
         setCommunityName(event.target.value);
+    };
+
+    const handleClosePopup = () => {
+        setShowPopup(false);
     };
 
     return (
@@ -30,13 +51,13 @@ const CreateCommunityForm = () => {
             <h1 className="form-title">Create a Community</h1>
             <form onSubmit={handleSubmit} className="create-community-form">
                 <div className="form-group">
-                    <label htmlFor="community-id" className="form-label">Community Type:</label>
+                    <label htmlFor="community-type" className="form-label">Community Type:</label>
                     <input 
                         type="text" 
-                        id="community-id" 
-                        name="community-id" 
+                        id="community-type" 
+                        name="community-type" 
                         value={communityType} 
-                        onChange={handleCommunityIdChange} 
+                        onChange={handleCommunityTypeChange} 
                         required 
                         className="form-input" 
                     />
@@ -55,6 +76,20 @@ const CreateCommunityForm = () => {
                 </div>
                 <button type="submit" className="submit-button">Create Community</button>
             </form>
+
+            {/* Loader */}
+            {showLoader && <div className="loader">Community Creation in Progress!! Please wait..</div>}
+
+            {/* Popup modal */}
+            {showPopup && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h2>Community Created!</h2>
+                        <p>Name: {createdCommunityName}</p>
+                        {/* <button onClick={handleClosePopup}>Close</button> */}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

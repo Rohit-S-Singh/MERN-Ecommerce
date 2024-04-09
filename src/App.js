@@ -6,6 +6,8 @@ import SocketClient from './SocketClient';
 
 import Community from './Community/Community';
 
+import CommunityList from './CommunityList/communityList';
+
 function App() {
   const [chatType, setChatType] = useState(null);
 
@@ -38,6 +40,7 @@ function App() {
           {chatType ? (
             chatType === 'community' && (
               <>
+              <CommunityList/>
                 <SocketClient />
                 <FriendsList friends={friends} />
                 {/* <ChatBox /> */}
