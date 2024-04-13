@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 import './CommunityList.css'; // Import CSS file for styling
 
@@ -23,10 +24,8 @@ const CommunityList = () => {
 
     const handleDeleteCommunity = async (id) => {
         try {
-            console.log(communities);
             const res = await axios.get(`https://recomendation-system.up.railway.app/api/v1/community/delete/${id}`);
 
-            console.log(res);
             // Update the communities state to remove the deleted community
             setCommunities(communities.filter(community => community._id !== id));
         } catch (error) {
@@ -46,6 +45,7 @@ const CommunityList = () => {
                             <h2 className="community-name">{community.name}</h2>
                             <p className="community-type">Type: {community.type}</p>
                             <button onClick={() => handleDeleteCommunity(community._id)} className="delete-button">Delete</button>
+                            <Link to={`/community-chat/${community._id}`} className="chat-button">Chat</Link> {/* Modify chat button to use Link */}
                         </div>
                     ))}
                 </div>

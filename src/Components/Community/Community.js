@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './community.css';
 
+import CommunityList from '../CommunityList/communityList';
+
 const CreateCommunityForm = () => {
     const [communityType, setCommunityType] = useState('');
     const [communityName, setCommunityName] = useState('');
@@ -47,7 +49,14 @@ const CreateCommunityForm = () => {
     };
 
     return (
-        <div className="create-community-form-container">
+        <div>
+
+            <CommunityList/>
+            <div className="create-community-form-container">
+
+
+
+
             <h1 className="form-title">Create a Community</h1>
             <form onSubmit={handleSubmit} className="create-community-form">
                 <div className="form-group">
@@ -90,6 +99,7 @@ const CreateCommunityForm = () => {
                     </div>
                 </div>
             )}
+        </div>
         </div>
     );
 };
