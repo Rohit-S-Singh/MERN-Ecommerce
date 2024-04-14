@@ -252,6 +252,11 @@ button:hover {
   .button:active {
     background-color: #3e8e41; /* Active green */
   }
-  
 
-  
+.fo{
+  width: 1000px;
+  /* background-color: #0056b3; */
+
+
+    
+  }

@@ -65,11 +65,17 @@ function ChatBox({ userInfo, messages, addMessage }) {
 
     // Listen for incoming messages from the server
     socketInstance.on('rcvd-message', (data) => {
+      
       let sentByUser;
       if (data.sender === userInfo.name)
         sentByUser = true;
       else
         sentByUser = false;
+
+        console.log(data.sender);
+        console.log(userInfo.name);
+
+        console.log("variable-sent",sentByUser);
 
         if(data.message)
       addMessage({ text: data.message, sentByUser: sentByUser, sender: data.sender });

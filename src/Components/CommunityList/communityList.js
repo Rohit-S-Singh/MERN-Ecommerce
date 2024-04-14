@@ -33,6 +33,11 @@ const CommunityList = () => {
         }
     };
 
+    const handleJoinCommunity = async (id) => {
+
+
+    }
+
     return (
         <div className="community-list-container">
             <h1>Community List</h1>
@@ -45,10 +50,15 @@ const CommunityList = () => {
                             <h2 className="community-name">{community.name}</h2>
                             <p className="community-type">Type: {community.type}</p>
                             <button onClick={() => handleDeleteCommunity(community._id)} className="delete-button">Delete</button>
-                            <Link to={`/community-chat/${community._id}`} className="chat-button">Chat</Link> {/* Modify chat button to use Link */}
+                            {community.type === 'Public' ? (
+                                <Link to={`/community-chat/${community._id}`} className="chat-button">Chat</Link>
+                            ) : (
+                                <button onClick={() => handleJoinCommunity(community._id)} className="join-button">Join Community</button>
+                            )}
                         </div>
                     ))}
                 </div>
+
             )}
         </div>
     );

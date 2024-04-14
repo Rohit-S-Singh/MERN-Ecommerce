@@ -82,27 +82,27 @@ const CreateCommunityForm = () => {
 
             <CommunityList />
 
-            <Button 
-    onClick={handleOpen} 
-    style={{
-        backgroundColor: '#007bff',
-        color: '#ffffff',
-        padding: '10px 20px',
-        borderRadius: '5px',
-        border: 'none',
-        cursor: 'pointer',
-        fontSize: '16px',
-        fontWeight: 'bold',
-        textDecoration: 'none',
-        display: 'inline-block',
-        textAlign: 'center',
-        margin: '10px',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-        transition: 'background-color 0.3s ease',
-    }}
->
-    Create a new Community
-</Button>
+            <Button
+                onClick={handleOpen}
+                style={{
+                    backgroundColor: '#007bff',
+                    color: '#ffffff',
+                    padding: '10px 20px',
+                    borderRadius: '5px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '16px',
+                    fontWeight: 'bold',
+                    textDecoration: 'none',
+                    display: 'inline-block',
+                    textAlign: 'center',
+                    margin: '10px',
+                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                    transition: 'background-color 0.3s ease',
+                }}
+            >
+                Create a new Community
+            </Button>
 
 
             <Modal
@@ -117,15 +117,19 @@ const CreateCommunityForm = () => {
                         <form onSubmit={handleSubmit} className="create-community-form">
                             <div className="form-group">
                                 <label htmlFor="community-type" className="form-label">Community Type:</label>
-                                <input
-                                    type="text"
+                                <select
                                     id="community-type"
                                     name="community-type"
                                     value={communityType}
                                     onChange={handleCommunityTypeChange}
                                     required
                                     className="form-input"
-                                />
+                                >
+                                    <option value="">Select Community Type</option>
+                                    <option value="private">Private</option>
+                                    <option value="public">Public</option>
+                                </select>
+
                             </div>
                             <div className="form-group">
                                 <label htmlFor="community-name" className="form-label">Community Name:</label>
