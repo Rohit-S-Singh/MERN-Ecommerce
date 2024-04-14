@@ -1,18 +1,31 @@
-// import React, { useEffect } from 'react';
-import io from 'socket.io-client';
-
 import React, { useState, useEffect } from 'react';
+import io from 'socket.io-client';
 
 import ChatBox from '../Chatbox/chatBox';
 
+import './style.css';
 
 const SocketClient = ({ newMessage }) => {
-
-
   const [userInfo, setUserInfo] = useState({ name: '', email: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [mediaStream, setMediaStream] = useState(null);
+  const [picture, setPicture] = useState(null);
 
-  // Function to handle user input for name and email
+  useEffect(() => {
+    // Connect to the Socket.IO server
+    const socket = io('https://recomendation-system.up.railway.app/');
+
+    // Example: Listen for messages from the server
+    socket.on('rcvd-message', (data) => {
+      console.log('Message from server:', data);
+    });
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   const handleUserInfoChange = (e) => {
     const { name, value } = e.target;
     setUserInfo((prevUserInfo) => ({
@@ -21,65 +34,48 @@ const SocketClient = ({ newMessage }) => {
     }));
   };
 
-
-  const isUserInfoEntered = userInfo.name.trim() !== '' && userInfo.email.trim() !== '';
-
-
-  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Function to handle user input for name and email
-    const handleUserInfoChange = (e) => {
-      const { name, value } = e.target;
-      setUserInfo((prevUserInfo) => ({
-        ...prevUserInfo,
-        [name]: value,
-      }));
-    };
-
-    // Function to handle form submission
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      setIsSubmitted(true);
-    };
-
-
     setIsSubmitted(true);
   };
 
+  const handleCameraAccess = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      setMediaStream(stream);
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+    }
+  };
 
-  useEffect((newMessage) => {
-    // Connect to the Socket.IO server
-    const socket = io('https://recomendation-system.up.railway.app/'); // Replace with your server URL
-
-    // Example: Listen for messages from the server
-    socket.on('rcvd-message', (data) => {
-      console.log('Message from server:', data);
-    });
-
-
-    console.log(newMessage);
-
-    // Example: Emit a message to the server
-    socket.emit('new-message', { newMessage });
-
-    // Clean up the socket connection when the component unmounts
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+  const takePicture = () => {
+    const video = document.getElementById('camera-preview');
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    const imageUrl = canvas.toDataURL('image/png');
+    setPicture(imageUrl);
+    // Stop the camera stream
+    mediaStream.getTracks().forEach((track) => track.stop());
+  };
 
   return (
-    <div>
-      {isSubmitted && isUserInfoEntered && <ChatBox userInfo={userInfo} />}
+    <div className='main'>
+      
+    <div className = 'main-2'>
+      {isSubmitted && userInfo.name.trim() !== '' && userInfo.email.trim() !== '' && <ChatBox userInfo={userInfo} />}
       {!isSubmitted && (
-        <form onSubmit={handleSubmit}>
+        <form className='fo' onSubmit={handleSubmit}>
+          <div className='form-data'>
           <input
             type="text"
             name="name"
             placeholder="Enter your name"
             value={userInfo.name}
             onChange={handleUserInfoChange}
+            className='input-box'
+
           />
           <input
             type="email"
@@ -87,10 +83,32 @@ const SocketClient = ({ newMessage }) => {
             placeholder="Enter your email"
             value={userInfo.email}
             onChange={handleUserInfoChange}
+            className='input-box'
           />
-          <button type="submit">Submit</button>
+          </div>
+
+          <div className='butns'>
+
+              <button type="submit">Submit</button>
+              
+
+            </div>
+
         </form>
       )}
+
+{/* <button onClick={handleCameraAccess}>Access Camera</button>
+              {mediaStream && (
+                <>
+                  <video id="camera-preview" autoPlay />
+                  <button onClick={takePicture}>Take Picture</button>
+                </>
+              )}
+              {picture && <img src={picture} alt="Captured" />}
+ */}
+
+     
+    </div>
     </div>
   );
 };

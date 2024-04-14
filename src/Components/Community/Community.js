@@ -59,10 +59,6 @@ const CreateCommunityForm = () => {
 
             <CommunityList/>
             <div className="create-community-form-container">
-
-
-
-
             <h1 className="form-title">Create a Community</h1>
             <form onSubmit={handleSubmit} className="create-community-form">
                 <div className="form-group">

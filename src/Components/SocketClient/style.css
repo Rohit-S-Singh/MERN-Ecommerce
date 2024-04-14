@@ -1,18 +1,44 @@
 /* style.css */
 
 /* Chatbox container */
-#main {
-    background-color: antiquewhite;
+.main {
+    /* background-color: antiquewhite; */
     position: relative;
     width: 400px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    height: 400px;
+    display: flex;
+    align-items: center;
+/* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* height: 400px; */
+    /* width: 100vw; 100% of the viewport width */
+    height: 100vh; /* 10
     overflow-y: auto; /* Add overflow for scrolling */
 }
+.form-data{
+  /* background-color: #0056b3;  */
+  width: 1000px;
+}
 
+.butns{
+  /* background-color: #45a049; */
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.main2{
+  background-color: green;
+  border: 1px solid #ccc;
+
+}
+.input-box{
+  height:60px;
+  width: 300px;
+
+
+}
 #message-box {
     background-color: burlywood;
     position: relative;

@@ -4,7 +4,7 @@
 #main {
     background-color: antiquewhite;
     position: relative;
-    width: 400px;
+    width: 700px !important;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -16,7 +16,7 @@
 #message-box {
     background-color: burlywood;
     position: relative;
-    width: 400px;
+    width: 700px !important;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
