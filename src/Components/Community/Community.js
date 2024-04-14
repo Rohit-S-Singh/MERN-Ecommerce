@@ -5,6 +5,8 @@ import './community.css';
 
 import CommunityList from '../CommunityList/communityList';
 
+import { toast } from 'react-toastify';
+
 const CreateCommunityForm = () => {
     const [communityType, setCommunityType] = useState('');
     const [communityName, setCommunityName] = useState('');
@@ -12,16 +14,20 @@ const CreateCommunityForm = () => {
     const [showPopup, setShowPopup] = useState(false);
     const [createdCommunityName, setCreatedCommunityName] = useState('');
 
+
+    const notify = () => toast.success('Community creation in progress...');
+
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
 
         try {
+            notify();
             setShowLoader(true); // Show loader while waiting for response
             const response = await axios.post(
                 'https://recomendation-system.up.railway.app/api/v1/community',
                 {
                     name: communityName,
-                    type: communityType
+                    type: communityType 
                 }
             );
 

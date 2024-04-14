@@ -1,25 +1,32 @@
+import { isLabelWithInternallyDisabledControl } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import './style.css'
 
 const ChatTypeSelector = () => {
   console.log("Hi");
   return (
     <div className="chat-type-selector" style={styles.chatTypeSelector}>
-      <h3 style={styles.title}>Welcome to the Chat System</h3>
+      <div className='container'>
+        <div className='textt'>
+      <h3 className='heading'>Talk to strangers,Make Friends!</h3>
+      <p>Experience an exciting free random chat alternative to find friends, connect with strangers, and talk with different people in random anonymous chat rooms. No registration required.</p>
+
+      </div>
       <Link to="/private-chat" style={styles.link}><button className="button" style={styles.button}>Private Chat</button></Link>
       <Link to="/community-chat" style={styles.link}><button className="button" style={styles.button}>Community Chat</button></Link>
+    </div>
     </div>
   );
 };
 
 const styles = {
-  chatTypeSelector: {
-    textAlign: 'center',
-    marginTop: '2rem',
-  },
+  
   title: {
     fontSize: '1.2rem',
     marginBottom: '1rem',
+    color:" white"
   },
   button: {
     display: 'block',
