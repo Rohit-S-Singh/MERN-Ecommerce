@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify'; // Import the toast function
 
 import './community.css';
 
 import CommunityList from '../CommunityList/communityList';
 
-import { toast } from 'react-toastify';
-
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-
-
 
 const style = {
     position: 'absolute',
@@ -31,20 +28,23 @@ const CreateCommunityForm = () => {
     const [showLoader, setShowLoader] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const [createdCommunityName, setCreatedCommunityName] = useState('');
-
+    const [userId, setUserId] = useState('');
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-
-
-
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
 
+        // Check if userId matches the allowed ID
+        if (userId !== 'admin-rohit') {
+            // If userId doesn't match, show error toast message
+            toast.error('Sorry! You dont have the rights to create a community. :(');
+            return;
+        }
+
         try {
-            // notify();
             setShowLoader(true); // Show loader while waiting for response
             const response = await axios.post(
                 'https://recomendation-system.up.railway.app/api/v1/community',
@@ -79,9 +79,7 @@ const CreateCommunityForm = () => {
 
     return (
         <div>
-
             <CommunityList />
-
             <Button
                 onClick={handleOpen}
                 style={{
@@ -103,7 +101,6 @@ const CreateCommunityForm = () => {
             >
                 Create a new Community
             </Button>
-
 
             <Modal
                 open={open}
@@ -129,7 +126,6 @@ const CreateCommunityForm = () => {
                                     <option value="private">Private</option>
                                     <option value="public">Public</option>
                                 </select>
-
                             </div>
                             <div className="form-group">
                                 <label htmlFor="community-name" className="form-label">Community Name:</label>
@@ -139,6 +135,18 @@ const CreateCommunityForm = () => {
                                     name="community-name"
                                     value={communityName}
                                     onChange={handleCommunityNameChange}
+                                    required
+                                    className="form-input"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="user-id" className="form-label">User ID:</label>
+                                <input
+                                    type="text"
+                                    id="user-id"
+                                    name="user-id"
+                                    value={userId}
+                                    onChange={(event) => setUserId(event.target.value)}
                                     required
                                     className="form-input"
                                 />
@@ -155,16 +163,12 @@ const CreateCommunityForm = () => {
                                 <div className="popup-content">
                                     <h2>Community Created!</h2>
                                     <p>Name: {createdCommunityName}</p>
-                                    {/* <button onClick={handleClosePopup}>Close</button> */}
                                 </div>
                             </div>
                         )}
                     </div>
-
-
                 </Box>
             </Modal>
-
         </div>
     );
 };
