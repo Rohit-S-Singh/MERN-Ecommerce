@@ -13,7 +13,7 @@ const ChatTypeSelector = () => {
       <p>Talk to strangers,Make Friends!</p>
       </div>
       <div id = 'subtitle'>
-      <p>Experience an exciting free random chat alternative to find friends, connect with strangers, and talk with different people in random anonymous chat rooms. No registration required.</p>
+      {/* <p>Experience an exciting free random chat alternative to find friends, connect with strangers, and talk with different people in random anonymous chat rooms. No registration required.</p> */}
       </div>
 
       </div>
