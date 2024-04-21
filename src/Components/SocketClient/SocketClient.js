@@ -67,7 +67,7 @@ const SocketClient = ({ newMessage }) => {
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="Enter your email"
+                                    placeholder="Enter your email address"
                                     value={userInfo.email}
                                     onChange={handleUserInfoChange}
                                     className='input-box'

@@ -4,10 +4,10 @@
 .main {
     /* background-color: antiquewhite; */
     position: relative;
-    width: 400px;
+    width: 60vw;
     margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
+    /* padding: 20px; */
+    /* border-radius: 5px; */
     display: flex;
     align-items: center;
 /* flex-direction: column; */
@@ -19,7 +19,7 @@
 }
 .form-data{
   /* background-color: #0056b3;  */
-  width: 1000px;
+  width: 80vw;
 }
 
 .butns{
@@ -251,12 +251,4 @@ button:hover {
   
   .button:active {
     background-color: #3e8e41; /* Active green */
-  }
-
-.fo{
-  width: 1000px;
-  /* background-color: #0056b3; */
-
-
-    
   }

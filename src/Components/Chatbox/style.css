@@ -1,231 +1,28 @@
 /* style.css */
 
-/* Chatbox container */
-#main {
-    background-color: antiquewhite;
-    position: relative;
-    width: 700px !important;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    height: 400px;
-    overflow-y: auto; /* Add overflow for scrolling */
-}
-
-#message-box {
-    background-color: burlywood;
-    position: relative;
-    width: 700px !important;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* height: 400px; */
-}
-
-/* Message style */
-.message {
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    word-wrap: break-word;
-}
-
-/* Sent messages */
-.sent {
-    background-color: #007bff;
-    color: white;
-    align-self: flex-end;
-}
-
-/* Received messages */
-.received {
-    background-color: #f0f0f0;
-    color: black;
-    align-self: flex-start;
-}
-
-/* Input container */
-.input-container {
-    position: absolute;
-    bottom: 20px; /* Adjust as needed */
-    width: calc(100% - 40px); /* Subtract padding */
-    padding: 0 20px; /* Add padding to match container */
-    display: flex;
-    align-items: center;
-}
-
-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
+/* Common styles */
 .App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  #main {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .message {
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    max-width: 70%;
-  }
-  
-  .sent {
-    background-color: burlywood;
-    align-self: flex-end;
-  }
-  
-  .received {
-    background-color: burlywood;
-    align-self: flex-start;
-  }
-  
-  #message-box {
-    display: flex;
-    align-items: center;
-    width: 80%;
-  }
-  
-  #message-box input {
-    flex: 1;
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  #message-box button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh !important;
+  width: 100vw;
+  margin-left: -20%;
+}
 
-  .friends-list {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    width: 200px; /* Adjust width as needed */
-  }
-  
-  .friend {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .friend-status {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .online {
-    background-color: green;
-  }
-  
-  .offline {
-    background-color: red;
-  }
-  .unread-message-indicator {
-    margin-left: 5px;
-    color: blue; /* Change color as needed */
-    font-size: 10px; /* Adjust font size as needed */
-  }
-  
-  .friend {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .friend.even {
-    background-color: rgb(179, 155, 119); /* Light gray */
-  }
-  
-  .friend.odd {
-    background-color: rgb(146, 117, 63); /* Lighter gray */
-  }
-  
-  .app-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .box {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 80%; /* Adjust width as needed */
-  }
-  
-  .separator {
-    border: 0;
-    border-top: 1px solid #ccc;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
+#main{
 
-  .chat-type-selector {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50; /* Green */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #45a049; /* Darker green */
-  }
-  
-  .button:focus {
-    outline: none;
-  }
-  
-  .button:active {
-    background-color: #3e8e41; /* Active green */
-  }
-  
+  height: 60vh !important;
+  width: 55vw !important;
 
-  
+  background-color: beige;
+
+}
+
+
+#message-box{
+   /* height: 60vh !important; */
+  width: 51vw !important;
+
+
+}
+
