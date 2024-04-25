@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'; // Import the toast function
 import './community.css';
 
 import CommunityList from '../CommunityList/communityList';
+import NewsCarousel from '../CommunityHighlights'
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -79,7 +80,8 @@ const CreateCommunityForm = () => {
 
     return (
         <div>
-            <CommunityList />
+            <div id = "community-heading ">
+             <p id = "b">Share Your Thoughts here. Join and Create new Communities and threads.</p>
             <Button
                 onClick={handleOpen}
                 style={{
@@ -101,6 +103,8 @@ const CreateCommunityForm = () => {
             >
                 Create a new Community
             </Button>
+
+            </div>
 
             <Modal
                 open={open}
@@ -169,6 +173,9 @@ const CreateCommunityForm = () => {
                     </div>
                 </Box>
             </Modal>
+            <CommunityList />
+            <NewsCarousel></NewsCarousel>
+
         </div>
     );
 };

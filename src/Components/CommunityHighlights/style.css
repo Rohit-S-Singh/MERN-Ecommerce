@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap');
+
+.newsContainer {
+  background-color: #000000;
+  height: 500px;
+  color: white;
+}
+
+.newsContainer p {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 50px;
+  font-size: 30px;
+  font-family: 'AR One Sans', sans-serif;
+}
+
+.swiper {
+  width: 100%;
+  height: 70%;
+
+}
+
+.swiper-slide {
+
+  padding-top: 100px;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'AR One Sans', sans-serif;
+  /* background: #4a5f6d; */
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.writer {
+  padding-top: 25px;
+  font-family: 'Baloo Bhai 2', cursive;
+}
+
+.mySwiper {
+  .swiper-button-prev {
+    color: white
+  }
+
+  .swiper-button-next {
+    color: white
+  }
+
+  .swiper-pagination-bullet {
+    background-color: white
+  }
+
+}
