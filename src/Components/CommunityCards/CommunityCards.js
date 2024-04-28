@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useHistory } from 'react-router-dom';
 import Avatar from '@mui/joy/Avatar';
 import AvatarGroup from '@mui/joy/AvatarGroup';
 import Box from '@mui/joy/Box';
@@ -10,7 +11,19 @@ import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
+
+import { useNavigate } from 'react-router-dom';
+
 export default function CommunityCards(props) {
+  
+  console.log(props.data);
+  const navigate = useNavigate();
+  
+  
+  const ChatClickHandler = (id) => {
+    navigate(`/community-chat/${id}`);
+  };
+
   return (
     <Card
       variant="outlined"
@@ -46,12 +59,21 @@ export default function CommunityCards(props) {
         <IconButton variant="outlined" color="neutral" sx={{ mr: 'auto' }}>
           <FavoriteBorder />
         </IconButton>
-        <Button variant="outlined" color="neutral">
+       
+        {props.data.type === 'private' && <Button variant="outlined" color="neutral">
           Join
-        </Button>
+        </Button>}
+
+
+        {props.data.type === 'public' && <Button onClick={() => ChatClickHandler(props.data._id)} variant="outlined" color="neutral">
+          Chat
+        </Button>}
+      
         <Button variant="solid" color="primary">
           Delete
         </Button>
+      
+      
       </CardActions>
     </Card>
   );

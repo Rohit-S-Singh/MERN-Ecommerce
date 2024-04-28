@@ -20,7 +20,7 @@ const style = {
 };
 
 const SocketClient = ({ newMessage }) => {
-    const [userInfo, setUserInfo] = useState({ name: '', email: '' });
+    const [userInfo, setUserInfo] = useState({ name: '', email: '',  });
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [open, setOpen] = React.useState(true);
 

@@ -1,0 +1,86 @@
+.footer{
+    background-color: black;
+    color: white;
+    height:360px;
+    margin-top: 40px;
+  
+}
+
+.content{
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+label{
+   /* width: 40%; */
+   position: relative;
+   
+}
+input{
+    box-sizing: border-box;
+    border: 2px solid black;
+    width: 520px;
+    padding: 18px;
+    border-radius: 30px;
+   /* display: inline-block; */
+   margin-top: 38px;
+   margin-left: 30%;
+}
+.btn{
+    position: absolute;
+    margin-top: 45px;
+    width: 110px;
+    padding: 12px;
+    border-radius: 30px;
+    border: 2px solid black;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    left: 87%;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.icon img{
+    border-radius: 42px;
+    margin-top: 42px;
+    padding: 12px;
+    cursor: pointer;
+}
+.icon .para p{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: -770px;
+}
+
+.icon .para span {
+    position: absolute;
+    margin-top: 20px;
+    display: flex;
+    /* text-align: right; */
+    margin-left: 230px;
+}
+.icon .para span i{
+    position: absolute;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    /* text-align: right; */
+    color: red;
+    margin-left: 80px;
+}
+.icon .para span img{
+    position: absolute;
+    margin-top: -12px;
+    display: flex;
+    flex-direction: row;
+    /* text-align: right; */
+    color: red;
+    margin-left: 130px;
+}

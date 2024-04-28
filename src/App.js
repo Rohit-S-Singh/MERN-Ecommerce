@@ -87,6 +87,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css'; // Import your CSS file
+import Footer from './Components/Footer/Footer';
 
 const App = () => {
   return (
@@ -99,6 +100,7 @@ const App = () => {
         </Routes>
         <ToastContainer />
       </div>
+      <Footer></Footer>
     </Router>
   );
 };
