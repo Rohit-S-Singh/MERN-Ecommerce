@@ -1,101 +1,65 @@
 import './style.css';
 import io from 'socket.io-client';
-
 import React, { useState, useEffect } from 'react';
-
-import { useDispatch } from 'react-redux';
-
-
-import './style.css';
-import { connect } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { addMessage, sendMessage } from './actions';
 import OnlineStatusIndicator from '../StatusIndicator/onlineStateIndicator';
 
 function ChatBox({ userInfo, messages, addMessage }) {
   const [message, setMessage] = useState('');
-  
-  
-  const [socket, setSocket] = useState(null); // State variable to hold the socket instance
-  
+  const [typingData, setTypingData] = useState({ UserName: '', isTyping: false });
+  const [socket, setSocket] = useState(null); 
+
   const handleChange = (e) => {
     setMessage(e.target.value);
-  };
-  
-  const dispatch = useDispatch();
-  const handleSubmit = () => {
-    if (message.trim() !== '') {
-      // addMessage({ text: message, sentByUser: true, sender: userInfo.name });
-      let mess = { text: message, sentByUser: true, sender: userInfo.name };
 
+    // Emit typing status to the server
+    socket.emit('typingStatuss', { UserName: userInfo.name, isTyping: true });
+  };
+
+  const handleSendMessage = () => {
+    if (message.trim() !== '') {
       setMessage('');
 
-      console.log("message",message);
-
+      // Emit the message to the server
       socket.emit('new-message', { message, sender: userInfo.name });
-
-      // socket.on('rcvd-message', (data) => {
-      //   let sentByUser;
-      //   if (data.sender === userInfo.name)
-      //     sentByUser = true;
-      //   else
-      //     sentByUser = false;
-
-      // addMessage({ text: data.message, sentByUser: sentByUser, sender: data.sender });
-
-        // setMessages((prevMessages) => [...prevMessages, { text: data.message, sentByUser: sentByUser, sender: data.sender }]);
-  
-      // });
-
-      console.log(mess);
-
-      // sendMessage(mess,dispatch)
-      
     }
   };
 
-    useEffect(() => {
-    // Connect to the Socket.IO server when the component mounts
-    const socketInstance = io('http://localhost:8080/'); // Replace with your server URL
-
-    console.log(socketInstance);
-
+  useEffect(() => {
+    const socketInstance = io('https://recomendation-system.up.railway.app/');
     setSocket(socketInstance);
 
-
-
-    // Listen for incoming messages from the server
     socketInstance.on('rcvd-message', (data) => {
-      
-      let sentByUser;
-      if (data.sender === userInfo.name)
-        sentByUser = true;
-      else
-        sentByUser = false;
-
-        console.log(data.sender);
-        console.log(userInfo.name);
-
-        console.log("variable-sent",sentByUser);
-
-        if(data.message)
-      addMessage({ text: data.message, sentByUser: sentByUser, sender: data.sender });
-
-      // setMessages((prevMessages) => [...prevMessages, { text: data.message, sentByUser: sentByUser, sender: data.sender }]);
-
+      let sentByUser = data.sender === userInfo.name;
+      addMessage({ text: data.message, sentByUser, sender: data.sender });
     });
 
-    // Clean up the socket connection when the component unmounts
+    socketInstance.on('typingStatus', (data) => {
+      setTypingData(data);
+    });
+
+    // Cleanup: Disconnect socket when component unmounts
     return () => {
       socketInstance.disconnect();
     };
-  }, []);
+  }, [userInfo.name, addMessage]);
 
+  useEffect(() => {
+    const debounceTime = 1000; // 1 second
 
+    const typingTimer = setTimeout(() => {
+      setTypingData((prevData) => ({ ...prevData, isTyping: false }));
+    }, debounceTime);
 
+    return () => {
+      clearTimeout(typingTimer);
+    };
+  }, [message]);
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      handleSubmit();
+      handleSendMessage();
     }
   };
 
@@ -108,6 +72,11 @@ function ChatBox({ userInfo, messages, addMessage }) {
             {msg.text} {msg.sentByUser ? '(sent by you)' : `sent by ${msg.sender}`}
           </div>
         ))}
+        {typingData.isTyping && (
+          <div className="message received">
+            <p>{typingData.UserName} is typing...</p>
+          </div>
+        )}
       </div>
       <div id="message-box">
         <input
@@ -116,21 +85,19 @@ function ChatBox({ userInfo, messages, addMessage }) {
           onChange={handleChange}
           onKeyPress={handleKeyPress}
         />
-        <button onClick={handleSubmit}>Send Message</button>
+        <button onClick={handleSendMessage}>Send Message</button>
       </div>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  messages: state.chat.messages === undefined ? []: state.chat.messages
+  messages: state.chat.messages || [],
 });
 
 const mapDispatchToProps = {
   addMessage,
-  sendMessage
-  // sendMessage: (message) => dispatch(sendMessage(message))
+  sendMessage,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatBox);
-
