@@ -80,29 +80,35 @@ const CreateCommunityForm = () => {
 
     return (
         <div>
-            <div id = "community-heading ">
-             <p id = "b">Share Your Thoughts here. Join and Create new Communities and threads.</p>
-            <Button
-                onClick={handleOpen}
-                style={{
-                    backgroundColor: '#007bff',
-                    color: '#ffffff',
-                    padding: '10px 20px',
-                    borderRadius: '5px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                    fontWeight: 'bold',
-                    textDecoration: 'none',
-                    display: 'inline-block',
-                    textAlign: 'center',
-                    margin: '10px',
-                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-                    transition: 'background-color 0.3s ease',
-                }}
-            >
-                Create a new Community
-            </Button>
+            <div id="community-heading">
+                <div id="heading-main">
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Share Your Thoughts here. Join and Create new Communities and threads.</p>
+                    <div id='heading-btn'>
+                    <Button
+                        onClick={handleOpen}
+                        style={{
+                            backgroundColor: '#007bff',
+                            color: '#ffffff',
+                            padding: '10px 20px',
+                            borderRadius: '5px',
+                            border: 'none',
+                            cursor: 'pointer',
+                            fontSize: '16px',
+                            fontWeight: 'bold',
+                            textDecoration: 'none',
+                            display: 'inline-block',
+                            textAlign: 'center',
+                            margin: '10px',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                            transition: 'background-color 0.3s ease',
+                            width: '400px'
+                        }}
+                    >
+                        Create a new Community
+                    </Button>
+                </div>
+                </div>
+               
 
             </div>
 

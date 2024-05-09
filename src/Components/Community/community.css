@@ -13,11 +13,10 @@
   }
 
   #community-heading{
-    background-color: #0056b3;
-    display: flex;
-    /* flex-direction: column; */
+    display: flex !important;
     justify-content: space-around;
-    /* margin-top: 100px; */
+    height: 500px;
+    /* background-color: rebeccapurple; */
   }
 
 .form-title {
@@ -57,4 +56,37 @@
 
 .submit-button:hover {
     background-color: #0056b3;
+}
+
+#community-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+#heading-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 25px;
+    color: white;
+    margin-top: 10%;
+    /* background-color: #f9f9f9; */
+}
+
+#heading-btn{
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    /* color: white; */
+}
+
+#user-id{
+    width: 200px;
+}
+
+#community-name{
+    width: 100px;
 }

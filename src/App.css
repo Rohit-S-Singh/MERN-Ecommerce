@@ -10,11 +10,8 @@
   }
   
   
-.app-background {
+  .app-background {
     background-image: url('./cool-background.png');
-    /* background-size: auto; */
-    /* background-repeat: repeat; */
-    /* min-height: 100vh; */
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
+    background-color: rgba(255, 255, 255, 0.1);
+    background-blend-mode: overlay;
+}
