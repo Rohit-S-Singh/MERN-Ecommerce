@@ -43,7 +43,7 @@ const NewsCarousel = () => {
   return (
     <>
       <div className="newsContainer">
-        <p>Moviebase has received toching comment</p>
+        <p>Our Website has received toching Reviews</p>
         <Swiper
 
           cssMode={true}

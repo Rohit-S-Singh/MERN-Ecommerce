@@ -44,9 +44,7 @@ const CommunityList = () => {
 
     return (
         <div className="community-list-container">
-            {loading ? (
-                <p>Loading communities...</p>
-            ) : (
+            <p id = 'communityy-heading'>Existing Communities</p>
                 <div className="community-cards-container">
                     {communities.map((community) => (
                         <CommunityCards id = 'a' data = {community}></CommunityCards>
@@ -63,7 +61,6 @@ const CommunityList = () => {
                     ))}
                 </div>
 
-            )}
         </div>
     );
 };

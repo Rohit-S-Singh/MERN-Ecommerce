@@ -2,11 +2,15 @@ import { isLabelWithInternallyDisabledControl } from '@testing-library/user-even
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Home from '../ChatBotTry/Try.js'
+
 import './style.css'
 
 const ChatTypeSelector = () => {
   return (
     <div className="chat-type-selector" >
+      {/* <Home/> */}
+
       <div className='container'>
         <div className='textt'>
           <div id='heading'>
