@@ -23,11 +23,8 @@
   font-size: 5vw;
   /* border: 1px solid white; */
   width: 80vw;
-  margin-left: -25vw;
-  margin-top: -35vh;
-
-
-
+  margin-left: -20vw;
+  margin-top: -25vh;
 
   /* background-color: red; */
   /* overflow: hidden; */
@@ -45,16 +42,11 @@
   /* justify-content:; */
 }
 
-#subtitle{
-
-  margin-top: -30vh;
-  width: 60vw;
-  margin-left: -13vw;
-  
-  
-}
 
 #btns{
-  /* width: 40vw; */
-  background-color: blue,
+  width: 40vw;
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: blue; */
+  padding:100px;
 }

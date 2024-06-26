@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Footer from './Components/Footer/Footer';
 import Login  from './Components/Login/index';
 import Profile from './Components/Profile'
+import TodoList from './Components/ToDo/TodoList';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/community-chat" element={<Community />} />
           <Route path="/community-chat/:id" element={<SocketClient />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/workManager" element={<TodoList />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
         <ToastContainer />
