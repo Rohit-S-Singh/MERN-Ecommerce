@@ -15,7 +15,7 @@ import SocketClient from './Components/SocketClient/SocketClient';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import './App.css'; // Import your CSS file
+// import './App.css'; // Import your CSS file
 import Footer from './Components/Footer/Footer';
 import Login  from './Components/Login/index';
 import Profile from './Components/Profile'
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <Router>
       <Navbar></Navbar>
-      <div className="app-background"> {/* Add the class name here */}
+      <div> {/* Add the class name here */}
         <Routes>
           <Route exact path="/" element={<ChatTypeSelector />} />
           <Route path="/community-chat" element={<Community />} />
