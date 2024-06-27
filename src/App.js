@@ -36,7 +36,7 @@ const App = () => {
         </Routes>
         <ToastContainer />
       </div>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </Router>
   );
 };

@@ -23,7 +23,7 @@ const Login = (props) => {
     <div className='one'>
     <div className={'mainContainer'}>
       <div className={'titleContainer'}>
-        <div>Login :))))</div>
+        <div>Login - WIP</div>
       </div>
       <br />
       <div className={'inputContainer'}>
