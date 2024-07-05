@@ -20,7 +20,7 @@ const Navbar = () => {
         {!isAuthenticated ? (
           <>
             <li className="nav-item">
-              <Link to="/login" className="auth-link">Login</Link> {/* Use Link for Login */}
+              <Link to="/LoginForm" className="auth-link">Login</Link> {/* Use Link for Login */}
             </li>
             <li className="nav-item">
               <Link to="/signup" className="auth-link signup-btn">Sign Up</Link> {/* Use Link for Sign Up */}
