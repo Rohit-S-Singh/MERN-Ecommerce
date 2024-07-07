@@ -14,7 +14,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  padding: 20px;
+  padding: 0;
   overflow-x: hidden;
   font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 }

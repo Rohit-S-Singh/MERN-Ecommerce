@@ -2,8 +2,8 @@
     background-color: black;
     color: white;
     height:360px;
-    /* margin-top: 40px; */
-  
+    margin-top: 40px;
+  width:100%;
 }
 
 .content{
@@ -39,7 +39,7 @@ input{
     cursor: pointer;
     background-color: red;
     color: white;
-    left: 87%;
+    left: 86%;
 }
 .icon{
     display: flex;
@@ -49,7 +49,7 @@ input{
 }
 .icon img{
     border-radius: 42px;
-    margin-top: 42px;
+    margin-top: 12px;
     padding: 12px;
     cursor: pointer;
 }
