@@ -1,36 +1,39 @@
-.footer{
+.footer {
     background-color: black;
     color: white;
-    height:360px;
+    height: 400px;
     margin-top: 40px;
-  width:100%;
+    width: 100%;
 }
 
-.content{
-      display: flex;
+.content {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 60px;
 }
-label{
-   /* width: 40%; */
-   position: relative;
-   
+
+label {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: auto;
 }
-input{
+
+input {
     box-sizing: border-box;
     border: 2px solid black;
-    width: 520px;
     padding: 18px;
     border-radius: 30px;
-   /* display: inline-block; */
-   margin-top: 38px;
-   margin-left: 30%;
+    margin-top: 38px;
 }
-.btn{
+
+.btn {
     position: absolute;
-    margin-top: 45px;
+    margin-top: 40px;
     width: 110px;
     padding: 12px;
     border-radius: 30px;
@@ -39,48 +42,212 @@ input{
     cursor: pointer;
     background-color: red;
     color: white;
-    left: 86%;
+    left: 75%;
 }
-.icon{
+
+.icon {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-   
+    margin-left: 20px;
 }
-.icon img{
+
+.icon img {
     border-radius: 42px;
     margin-top: 12px;
     padding: 12px;
     cursor: pointer;
 }
-.icon .para p{
-    position: absolute;
-    margin-top: 20px;
-    margin-left: -770px;
+
+.icon .para {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align:left;
+    margin: 10px 0px;
+    
 }
 
-.icon .para span {
-    position: absolute;
-    margin-top: 20px;
-    display: flex;
-    /* text-align: right; */
-    margin-left: 230px;
+.icon .para p, .icon .para span {
+    margin: 20px 20px;
+    
 }
-.icon .para span i{
-    position: absolute;
-    margin-top: 0px;
-    display: flex;
-    flex-direction: row;
-    /* text-align: right; */
+
+.icon .para span i {
     color: red;
-    margin-left: 80px;
+    margin-left: 10px;
 }
-.icon .para span img{
-    position: absolute;
-    margin-top: -12px;
-    display: flex;
-    flex-direction: row;
-    /* text-align: right; */
+
+.icon .para span img {
     color: red;
-    margin-left: 130px;
+    margin-left: 10px;
+}
+
+
+.para{
+display: flex;
+justify-content: center;
+}
+/* Media queries for responsive design */
+@media (max-width: 1222px) {
+    label {
+        width: 50%;
+    }
+
+    .btn {
+        left: calc(99% - 120px);
+    }
+
+    .icon {
+        margin-left: 35px;
+    }
+
+    .footer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 951px) {
+    .footer {
+        width: 100%;
+    }
+
+    .icon {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 35px;
+    }
+
+    .icon .para {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        width: 100%;
+    }
+
+    label {
+        width: 80%;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .btn {
+        left: calc(99% - 120px);
+    }
+
+    .icon {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon .para {
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 524px) {
+    .footer {
+        height: auto;
+        padding: 20px 10px;
+        width: 115vw;
+    }
+
+    .content {
+        padding-top: 30px;
+    }
+
+    label {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .btn {
+        left: 85%;
+        transform: translateX(-50%);
+        
+    }
+
+    .icon img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .icon {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon .para {
+        margin-bottom: 10px;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .icon .para span {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 418px) {
+    .footer {
+        height: auto;
+        padding: 20px 10px;
+        width: 135vw;
+    }
+
+    .content {
+        padding-top: 30px;
+    }
+
+    label {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .btn {
+        left: 85%;
+        transform: translateX(-50%);
+        
+    }
+
+    .icon img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .icon {
+       
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        
+    }
+
+    .icon .para {
+        margin-bottom: 10px;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .icon .para span {
+        flex-direction: column;
+        align-items: center;
+    }
 }

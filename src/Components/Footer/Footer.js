@@ -28,19 +28,22 @@ const Footer = () => {
               <button className="btn" type="submit">Join</button>
                </label>
                <div class="icon">
+                <div class="img">
                <img src={facebook}height={60} width={60} />
                <img src={google}height={60} width={60} />
                <img src={instragram}height={60} width={60} />
                <img src={linkdin}height={60} width={60} />
                <img src={twiter}height={60} width={60} />
                <img src={youtube}height={60} width={60} />
+               </div>
+                </div>
               <div className="para"> 
-                    <p>Discover 2016 @ All Right Reserved  </p>
+                    <p class="dis">Discover 2016 @ All Right Reserved  </p>
                     {/* <span>Design by <i>  Muskan </i> <img src={Alert}height={45} width={45} /> </span> */}
               </div>
-              </div>
+             
             </div>
         </>
     )
 }
-export default Footer
+export default Footer 
