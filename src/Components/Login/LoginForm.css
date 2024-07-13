@@ -57,9 +57,10 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 380px) {
   .form-body {
     padding: 30px 20px;
+    margin-left:128px
   }
 }
 
@@ -231,3 +232,4 @@ button.login-button:hover {
 
   }
 }
+
