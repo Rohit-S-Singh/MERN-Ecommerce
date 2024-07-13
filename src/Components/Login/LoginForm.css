@@ -233,3 +233,9 @@ button.login-button:hover {
   }
 }
 
+@media  (max-width: 410px) {
+  .form-body {
+    padding: 30px 20px;
+    margin-left:128px
+  }
+}
