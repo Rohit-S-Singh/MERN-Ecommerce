@@ -162,7 +162,7 @@ li.fb a::before {
   font-weight: bold;
   width: 100px;
   text-align: left;
-  margin-right:90px;
+  margin-right:170px;
   margin-top: 4px;
 }
 
@@ -178,6 +178,7 @@ li.fb a::before {
   transition: all .3s ease-in-out;
   width: 130%;
   margin-top:14px;
+  margin: auto;
 }
 
 .input-container input:focus {
@@ -208,4 +209,25 @@ button.login-button {
 button.login-button:hover {
   background-color: #fff199;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 560px) {
+  .main-container{
+    display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 80vh;
+
+  }
+}
+
+@media  (max-width: 400px) {
+  .main-container{
+    display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 80vh;
+  margin-left: 12px;
+
+  }
 }
